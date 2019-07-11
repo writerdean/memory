@@ -1,0 +1,89 @@
+Display 12 cards.
+Duplicate the cards to have 2 sets of 12.
+Randomize the display of cards.
+Add selected style for selected cards.
+Only allow two cards to be selected at a time.
+Determine if two selected cards are a match and hide them.
+Reset guess count after 2.
+Add delay to selections.
+Show back of card initially and flip on select
+Finished game!
+
+First, let's create the setup. We'll create index.html, which will just be a regular HTML skeleton putting in JS and CSS. The entirety of the app will be contained in the game div, so this file won't change at all.
+
+The first step is to display 12 cards, each with a different value. To do this, I'm going to create an array of objects, and put it in the cardsArray variable. Each object will contain a name and an image.
+
+Now we have 12 cards, but how do we display them? First, we'll grab the element I said would be the root for the entire app - the div with an id of game. We'll create a new section element, give it the  grid class, and append it to the DOM inside our game root div.
+
+Now we want to get the images to display on the front end. We'll loop through each item in  cardsArray with forEach(), create a new card div for each object, and set the data-name attribute and background-image style property of the div. We will then append that div to the grid. This will give us 12 divs in total.
+
+Step two is much simpler than step one. Now we're going to duplicate the cardsArray array, then loop through that instead. First, below your array, create a gameGrid variable, and duplicate the array by using concat().
+
+Then replace cardsArray with gameGrid in the forEach() loop.
+
+Shuffle the array using sort() and Math.random(). Don't get how that works? Here.
+Place this code right after the declaration of gameGrid.
+gameGrid.sort(() => 0.5 - Math.random())
+
+We'll add an event listener to the entire grid. Anytime an element is clicked, the selected class will be applied to it. Add this code to the bottom of script.js
+
+We need to only allow two selections at a time, because we're testing if two selected cards match. In order to do this, we'll need to store the guesses and counter somewhere. First we'll just store the count.
+
+Now we'll modify the event listener to have an if statement that counts to two, and only adds  selected to two cards. We'll put our code to add the selected CSS inside the statement.
+Where we just had a count variable before, we'll add a place to store the first and second guess as well.
+I'm going to make a function for matching elements. This will just loop through all selected elements when called, then add the match class.
+Now I have to call the match() function at the right time in the code. Back in our event listener, I'm going to assign the first and second guess to their respective variables. If they're both not empty and match, the match() function will be called.
+Now, the guesses don't reset, so we can only select or match one thing at a time. But if we select two elements we know match, the proper CSS will be applied.
+If I select the same element twice, it will consider it a match, because they both have the same data-name property. I shouldn't be able to select the same element twice, so we'll have to fix this before moving on. First, I'll add a  previousTarget variable.
+
+I'll assign the clicked value to prevousTarget after the first click.
+
+Finally, I'll add that check to our return statement at the top of the counter.
+
+Right now, we only get two guesses. If they're a match, the match style will show. If they're not, the regular selected style will show. We want to allow multiple guesses. We'll have to do this by resetting the guess count after two guesses, whether they matched or not.
+
+First, I'll create a function to reset the guesses. This will set all counts and guesses back to their original values, as well as removing the selected CSS.
+
+Then I'll add the resetGuesses() function to the match checker, on success or fail.
+
+Now you can make multiple matches. You'll notice that the select style will disappear immediately if it's not a match, but this is fine because we haven't set any delays to allow it to display longer.
+
+Right now, everything happens immediately. We want a delay after we make a selection so the user can see what their selection was before the card is hidden again. Right now it doesn't matter because everything is visible, but we can just take care of it before putting the final style touches on the cards.
+
+We're going to use setTimeout() to make the delays. First I'll set my delay time, which I'm choosing to be 1200 milliseconds, or 1.2 seconds.
+
+All I'm going to do now is put the functions from before in the setTimeout(), with the delay variable as the amount of time for the timeout to last. The functions become callbacks now, which are functions used as arguments, and they no longer need the parentheses.
+
+Now we can see selections and matches for 1.2 seconds before they disappear.
+
+When I made this the first time around, I had the cards hidden the whole time, which made testing unnecessarily difficult. This time I decided to hide the cards as one of the last steps, once all the functionality is there.
+
+The game has all the functionality we want, but not the styles. We need to:
+
+Hide the cards initially
+Flip them over when selected
+Make matches disappear
+All of this goes together, and will require a few structural changes to the code. We'll have to add a bit more complicated CSS to get this done.
+
+First, our cards have all consisted of one div right now. In order to implement the flip, each div will need to consist of three divs that will look like this:
+
+<div class="card">
+  <div class="front"></div>
+  <div class="back"></div>
+</div>
+We'll modify the card creation loop to add the front and back elements.
+
+Where we had clicked.dataset.name and clicked.classList.add, we'll have to add parentNode now, since we'll be clicking on an inner div (front or back) and the data-name is still on the outer div (card).
+
+Now we're going to go back to CSS for a moment. To get the flip to work, we're going to set each  card as relative, and the back and front as absolute. All three will have the same height and width.
+
+The front of each card (technically the back if you're thinking like a deck of cards, but I'm calling it the front because it's the default view) will be a question mark box.
+
+The back will have all the properties for the background image to style property, and it will be rotated for the flip animation.
+
+Selected items will be rotated, and matched items will become white, which will override the background image applied through JavaScript.
+
+Can you find any problems with the current game? Right now, I see that I can flip over already matched items, so I'm going to disable that in the return statement at the top.
+
+That's the last issue I could find! I added a blue background for a bit of a more Mario-ish style, and now it's done! You could extend this game further by counting and displaying the number of failed attempts, or adding a message upon completion, but I think this is good enough.
+
