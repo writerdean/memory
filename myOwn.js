@@ -1,3 +1,7 @@
+// let fs = require('fs');
+// let files = fs.readdirSync('img');
+// console.log(files);
+
 const allCards = [
   {name: 'Ali', img: 'img/ali.jpg'},
   {name: 'aub_icecream', img: 'img/aub_icecream.jpg'},
@@ -6,7 +10,7 @@ const allCards = [
   {name: 'DeeDee', img: 'img/DeeDee.jpg'},
   {name: 'Family', img: 'img/Family.jpg'},
   {name: 'guitar', img: 'img/guitar.jpg'} ,
-   {name: 'Hunter', img: 'img/Hunter.jpg'},
+  {name: 'Hunter', img: 'img/Hunter.jpg'},
   {name: 'jen_joe_sunnies', img: 'img/jen_joe_sunnies.jpg'},
   {name: 'Jen', img: 'img/Jen.jpg'},
   {name: 'Makena', img: 'img/Makena.jpg'},
@@ -74,12 +78,14 @@ const resetGuesses = () => {
   var selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
     card.classList.remove('selected');
+    card.classList.remove('back');
+
   });
 };
 
 grid.addEventListener('click', function (event) {
   let clicked = event.target;
-  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected')) {
+  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected') || clicked.parentNode.classList.contains('match')) {
     return;
   }
   if (count < 2) {
