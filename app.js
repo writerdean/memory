@@ -1,22 +1,19 @@
 // Display 12 cards.
 const cardsArray = [
-  {name: 'ali_cupcake', img: 'img/ali_cupcake.jpg'},
-  {name: 'ali_hula', img: 'img/ali_hula.jpg'},
-  {name: 'ali_joe', img: 'img/ali_joe.jpg'},
-  {name: 'ali_wings', img: 'img/ali_wings.jpg'},
-  {name: 'aub_cupcake', img: 'img/aub_cupcake.jpg'},
+  {name: 'Ali', img: 'img/ali.jpg'},
+  {name: 'aub_icecream', img: 'img/aub_icecream.jpg'},
+  {name: 'Barb', img: 'img/Barb.jpg'},
   {name: 'city_sunnies', img: 'img/city_sunnies.jpg'},
+  {name: 'DeeDee', img: 'img/DeeDee.jpg'},
   {name: 'Family', img: 'img/Family.jpg'},
-  {name: 'family2', img: 'img/family2.jpg'},
-  {name: 'girls', img: 'img/girls.jpg'},
-  {name: 'go_to_face', img: 'img/go_to_face.jpg'},
-  {name: 'grandpa', img: 'img/grandpa.jpg'},
-  {name: 'guitar', img: 'img/guitar.jpg'},
-  {name: 'jen_aub_al', img: 'img/jen_aub_al.jpg'},
-  {name: 'jen_aub_al2', img: 'img/jen_aub_al2.jpg'},
+  {name: 'guitar', img: 'img/guitar.jpg'} ,
+  {name: 'Hunter', img: 'img/Hunter.jpg'},
   {name: 'jen_joe_sunnies', img: 'img/jen_joe_sunnies.jpg'},
-  {name: 'joe_jen', img: 'img/joe_jen.jpg'},
-  {name: 'tongues', img: 'img/tongues.jpg'}
+  {name: 'Jen', img: 'img/Jen.jpg'},
+  {name: 'Makena', img: 'img/Makena.jpg'},
+  {name: 'Scott', img: 'img/Scott.jpg'},
+  {name: 'Denise', img: 'img/Denise.jpg'},
+  {name: 'Chris', img: 'img/Chris.jpg'}
 ]
 
 let gameGrid = cardsArray.concat(cardsArray);
