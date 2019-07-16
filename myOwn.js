@@ -110,9 +110,3 @@ grid.addEventListener('click', function (event) {
     previousTarget = clicked;
   }
 });
-
-// make already flipped cards NOT CLICKABLE AGAIN!!!!!!
-// choose 12 cards or ALL cards (show current number in folder)
-// keep track of how many guesses
-// show something cool at end of game
-// get names of files in folder
