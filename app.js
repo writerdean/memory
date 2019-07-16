@@ -1,6 +1,10 @@
 // Display 12 cards.
 const cardsArray = [
   {name: 'Ali', img: 'img/ali.jpg'},
+  {name: 'ali_hula', img: 'img/ali_hula.jpg'},
+  {name: 'ali_cupcake', img: 'img/ali_cupcake.jpg'},
+  {name: 'ali_wings', img: 'img/ali_wings.jpg'},
+  {name: 'Chris', img: 'img/Chris.jpg'},
   {name: 'aub_icecream', img: 'img/aub_icecream.jpg'},
   {name: 'Barb', img: 'img/Barb.jpg'},
   {name: 'city_sunnies', img: 'img/city_sunnies.jpg'},
@@ -13,7 +17,11 @@ const cardsArray = [
   {name: 'Makena', img: 'img/Makena.jpg'},
   {name: 'Scott', img: 'img/Scott.jpg'},
   {name: 'Denise', img: 'img/Denise.jpg'},
-  {name: 'Chris', img: 'img/Chris.jpg'}
+  {name: 'tongues', img: 'img/tongues.jpg'},
+  {name: 'KC', img: 'img/KC.jpg'},
+  {name: 'go_to_face', img: 'img/go_to_face.jpg'},
+  {name: 'joe_jen', img: 'img/joe_jen.jpg'},
+  {name: 'girls', img: 'img/girls.jpg'}
 ]
 
 let gameGrid = cardsArray.concat(cardsArray);

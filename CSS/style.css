@@ -4,6 +4,27 @@
   box-sizing: border-box;
 }
 
+/* The animation code */
+@keyframes gameOver {
+    0%   {border-color: red;}
+    16.65%  {border-color: orange;}
+    33.3%  {border-color: yellow;}
+    50%  {border-color: blue;}
+    66.6%  {border-color: green;}
+    83.25%  {border-color: indigo;}
+    100% {border-color: violet;}
+}
+
+/* The element to apply the animation to */
+.winner {
+    border-color: red;
+    border: 35px solid;
+    animation-name: gameOver;
+    animation-duration: 1s;
+    /* animation-direction: alternate; */
+    animation-iteration-count: 4;
+}
+
 body {
   margin: 20px 0;
   background: #6589F9;

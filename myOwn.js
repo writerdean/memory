@@ -1,5 +1,9 @@
 const allCards = [
   {name: 'Ali', img: 'img/ali.jpg'},
+  {name: 'ali_hula', img: 'img/ali_hula.jpg'},
+  {name: 'ali_cupcake', img: 'img/ali_cupcake.jpg'},
+  {name: 'ali_wings', img: 'img/ali_wings.jpg'},
+  {name: 'Chris', img: 'img/Chris.jpg'},
   {name: 'aub_icecream', img: 'img/aub_icecream.jpg'},
   {name: 'Barb', img: 'img/Barb.jpg'},
   {name: 'city_sunnies', img: 'img/city_sunnies.jpg'},
@@ -12,7 +16,11 @@ const allCards = [
   {name: 'Makena', img: 'img/Makena.jpg'},
   {name: 'Scott', img: 'img/Scott.jpg'},
   {name: 'Denise', img: 'img/Denise.jpg'},
-  {name: 'Chris', img: 'img/Chris.jpg'}
+  {name: 'tongues', img: 'img/tongues.jpg'},
+  {name: 'KC', img: 'img/KC.jpg'},
+  {name: 'go_to_face', img: 'img/go_to_face.jpg'},
+  {name: 'joe_jen', img: 'img/joe_jen.jpg'},
+  {name: 'girls', img: 'img/girls.jpg'}
 ]
 
   const gameArray = []
@@ -23,13 +31,25 @@ const allCards = [
 let gameGrid = gameArray.concat(gameArray);
 gameGrid.sort(() => 0.5 - Math.random());
 
+function quickWin() {
+  let x = document.querySelectorAll('.card')
+  // for (let i = 0; i < x.length; i++) {
+  //   console.log(x[i])
+  // }
+  x.forEach(function(item) {
+    console.log(item)
+
+  })
+  console.log(`....................................`)
+}
+
 let firstGuess = '';
 let secondGuess = '';
 let count = 0;
 let totalGuesses = 0;
 let previousTarget = null;
 let delay = 1200;
-
+let matched = document.querySelectorAll('.match')
 const game = document.getElementById('game');
 const grid = document.createElement('section');
 grid.setAttribute('class', 'grid');
@@ -59,6 +79,14 @@ const match = () => {
   });
 }
 
+const winner = () => {
+  let selected = document.querySelectorAll('.card');
+  selected.forEach(card => {
+    card.classList.add('winner');
+    console.log(`And NOW That's A Winner!`)
+  });
+}
+
 const resetGuesses = () => {
   firstGuess = '';
   secondGuess = '';
@@ -72,7 +100,10 @@ const resetGuesses = () => {
   });
 };
 
+
+
 grid.addEventListener('click', function (event) {
+// length of classList.includes('match') === gameGrid.length, yes game over, no return
   let clicked = event.target;
   if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected') || clicked.parentNode.classList.contains('match')) {
     return;
@@ -90,6 +121,14 @@ grid.addEventListener('click', function (event) {
       if (firstGuess === secondGuess) {
         setTimeout(match, delay);
         setTimeout(resetGuesses, delay);
+        if (gameGrid.length -2 == document.querySelectorAll('.match').length) {
+          console.log(`And That's A Winner!!!!!`)
+        setTimeout(winner, delay);
+
+          // call animation
+          let winners = document.querySelectorAll('.match')
+          console.log(winners)
+        }
       } else {
         setTimeout(resetGuesses, delay);
       }
