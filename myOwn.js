@@ -1,7 +1,3 @@
-// let fs = require('fs');
-// let files = fs.readdirSync('img');
-// console.log(files);
-
 const allCards = [
   {name: 'Ali', img: 'img/ali.jpg'},
   {name: 'aub_icecream', img: 'img/aub_icecream.jpg'},
@@ -16,13 +12,6 @@ const allCards = [
   {name: 'Makena', img: 'img/Makena.jpg'},
   {name: 'Scott', img: 'img/Scott.jpg'},
   {name: 'Denise', img: 'img/Denise.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
-  // {name: '__', img: 'img/__.jpg'},
   {name: 'Chris', img: 'img/Chris.jpg'}
 ]
 
