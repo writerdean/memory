@@ -31,18 +31,6 @@ const allCards = [
 let gameGrid = gameArray.concat(gameArray);
 gameGrid.sort(() => 0.5 - Math.random());
 
-function quickWin() {
-  let x = document.querySelectorAll('.card')
-  // for (let i = 0; i < x.length; i++) {
-  //   console.log(x[i])
-  // }
-  x.forEach(function(item) {
-    console.log(item)
-
-  })
-  console.log(`....................................`)
-}
-
 let firstGuess = '';
 let secondGuess = '';
 let count = 0;
@@ -103,7 +91,6 @@ const resetGuesses = () => {
 
 
 grid.addEventListener('click', function (event) {
-// length of classList.includes('match') === gameGrid.length, yes game over, no return
   let clicked = event.target;
   if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected') || clicked.parentNode.classList.contains('match')) {
     return;
@@ -121,8 +108,7 @@ grid.addEventListener('click', function (event) {
       if (firstGuess === secondGuess) {
         setTimeout(match, delay);
         setTimeout(resetGuesses, delay);
-        if (gameGrid.length -2 == document.querySelectorAll('.match').length) {
-          console.log(`And That's A Winner!!!!!`)
+        if (gameGrid.length -2 === document.querySelectorAll('.match').length) {
         setTimeout(winner, delay);
 
           // call animation

@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 /* The animation code */
@@ -13,12 +13,19 @@
     66.6%  {border-color: green;}
     83.25%  {border-color: indigo;}
     100% {border-color: violet;}
+    0%   {background-color: violet;}
+    16.65%  {background-color: indigo;}
+    33.3%  {background-color: green;}
+    50%  {background-color: blue;}
+    66.6%  {background-color: yellow;}
+    83.25%  {background-color: orange;}
+    100% {background-color: red;}
 }
 
 /* The element to apply the animation to */
 .winner {
     border-color: red;
-    border: 35px solid;
+    border: 15px solid;
     animation-name: gameOver;
     animation-duration: 1s;
     /* animation-direction: alternate; */
