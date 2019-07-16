@@ -4,28 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  <title>Memory</title>
+  <title>My Own Memory</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <div> <button class="home" onClick="window.location.reload()">Play Again</button></div>
+    <span class='inline'>Total Guesses <span id='guesses'></span></span>
+
   <div id="game"></div>
 
-  <div id="mydiv"></div>
-
-  <script type="text/babel">
-    class Hello extends React.Component {
-      render() {
-        return <h1>Hello World!</h1>
-      }
-    }
-  </script>
-
-
-
-  <script src="app.js"></script>
-  <!-- <script src="myOwn.js"></script> -->
+  <script src="myOwn.js"></script>
 </body>
 </html>
